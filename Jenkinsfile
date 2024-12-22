@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'my_notes_app'
+        DOCKER_IMAGE = 'todo_app'
     }
 
     stages {
