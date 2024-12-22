@@ -13,7 +13,6 @@ pipeline {
                 git url:"https://github.com/Madhu9209/todo_docker.git", branch: "main"
             }
         }
-    }
     stage("Build") {
             steps {
                 echo "Building the Docker image"
@@ -23,4 +22,5 @@ pipeline {
                 }
             }
         }
+    }
 }
