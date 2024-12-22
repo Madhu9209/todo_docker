@@ -10,11 +10,11 @@ pipeline {
         stage("Clone code") {
             steps {
                 echo "Cloning the code"
-                git url: "https://github.com/Madhu9209/django-notes-app.git", branch: "main"
+                git url:"https://github.com/Madhu9209/todo_docker.git", branch: "main"
             }
         }
     }
-    stage('Build') {
+    stage("Build") {
             steps {
                 echo "Building the Docker image"
                 script {
