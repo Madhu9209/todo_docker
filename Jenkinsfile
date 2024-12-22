@@ -23,4 +23,19 @@ pipeline {
             }
         }
     }
+    stage("Push to dockerhub") {
+            steps {
+                echo "Pushing to dockerhub"
+                withCredentials([usernamePassword(credentialsId: "dockerHub", passwordVariable: "dockerHubpass", usernameVariable: "dockerHubUser")]) {
+                    echo "Using DockerHub user: ${env.dockerHubUser}"  // For debugging
+                    script {
+                        sh """
+                            docker tag ${DOCKER_IMAGE} ${env.dockerHubUser}/${DOCKER_IMAGE}:latest
+                            echo ${env.dockerHubpass} | docker login -u ${env.dockerHubUser} --password-stdin
+                            docker push ${env.dockerHubUser}/${DOCKER_IMAGE}:latest
+                        """
+                    }
+                }
+            }
+        }
 }
