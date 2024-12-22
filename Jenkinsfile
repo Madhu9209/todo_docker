@@ -2,6 +2,10 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_IMAGE = 'my_notes_app'
+    }
+
     stages {
         stage("Clone code") {
             steps {
@@ -10,4 +14,13 @@ pipeline {
             }
         }
     }
+    stage('Build') {
+            steps {
+                echo "Building the Docker image"
+                script {
+                    sh 'docker --version'
+                    sh 'docker build -t ${DOCKER_IMAGE} .'
+                }
+            }
+        }
 }
