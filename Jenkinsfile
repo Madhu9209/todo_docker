@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {  
-                sh "docker run -d -p 1318:1318 madhu220/todo_app:latest"
+                sh "docker-compose down && docker-compose up -d"
             }
         }
     }
