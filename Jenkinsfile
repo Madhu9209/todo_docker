@@ -29,23 +29,13 @@ pipeline {
             }
         }
         stage('Deploy') {
-    steps {
-        echo "Deploy the container"
-        script {
-            // Check if the container is running, then stop and remove it
-            def containerExists = sh(script: "docker ps -q -f name=todo_app", returnStdout: true).trim()
-            if (containerExists) {
-                sh "docker stop todo_app"
-                sh "docker rm todo_app"
-            } else {
-                echo "No running container named 'todo_app' found"
+            steps {
+                echo 'Deploy the container'
+                sh "docker stop todo_app || true"
+                sh "docker rm todo_app || true"
+                    
+                sh "docker run -d --name todo_app -p 1319:1319 ${imageName}"
             }
-
-            // Run the new container
-            sh "docker run -d -p 1318:1318 madhu220/todo_app:latest"
         }
-    }
-}
-
     }
 }
