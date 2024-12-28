@@ -34,7 +34,7 @@ pipeline {
                 sh "docker stop todo_app || true"
                 sh "docker rm todo_app || true"
                     
-                sh "docker run -d -p 1319:1319 madhu220/todo_app:latest"
+                sh "docker run -d -p 1318:1318 madhu220/todo_app:latest"
             }
         }
     }
