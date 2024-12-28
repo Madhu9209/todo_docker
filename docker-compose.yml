@@ -1,7 +1,6 @@
-version: "3.3"
-services:
-  web:
+version : "3.3"
+services :
+  web :
     images : madhu220/todo_app:latest
-      context: .
-    ports:
+    ports :
       - "1318:1318"
