@@ -1,0 +1,6 @@
+version : "3.3"
+services :
+      web :
+      Build : .
+      Ports :
+        - "1318:1318"
