@@ -50,7 +50,7 @@ pipeline {
                     sh "docker rm todo_app || true"
                     
                     // Run the new container with the correct image reference
-                    sh "docker run -d --name todo_app -p 1399:1399 ${imageName}"
+                    sh "docker run -d -p --name todo_app -p 1319:1319 ${imageName}"
                 }
             }
         }
