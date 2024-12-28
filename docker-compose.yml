@@ -1,6 +1,7 @@
-version : "3.3"
-services :
-      web :
-      build : .
-      Ports :
-        - "1318:1318"
+version: "3.3"
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "1318:1318"
