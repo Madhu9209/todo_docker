@@ -31,8 +31,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploy the container"
-                sh "docker stop todo_app"
-                sh "docker rm todo_app"
                 sh "docker run -d -p 1318:1318  madhu220/todo_app:latest"
             }
         }
